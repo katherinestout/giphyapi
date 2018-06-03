@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Giphy API</title>
+</head>
+
+<body>
+
+<button data-topics  ="mean girls"> Katy Heron</button>
+<button data-topics  ="bob ross"> Bob Ross</button>
+<button data-topics ="snooki"> Jersey Shore </button>
+<button data-topics ="ducks"> Quack </button>
+<button data-topics ="figure skating">The best sport </button>
+<button data-topics ="barbie"> Barbie</button>
+
+
+ <!-- the new gifs div-->
+<div id="newGifs">
+
+</div>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    
+    $("button").on("click",function(){
+
+        var topics= $(this).attr("data-topics");
+
+   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        topics + "&api_key=C3PI5AGfGcUmb8dIKbGlyuFoUh08PbKO";
+
+
+  $.ajax({
+      url: queryURL,
+      method: "GET"
+
+
+    }).then(function(response) {
+
+      console.log(response);
+
+
+      //storing array of reults in the results variable
+
+      var results = response.data;
+
+      //loop!
+
+      for(var i = 0; i < results.length; i++){
+
+        //make a div with class item 
+            
+        var gifDiv = $("<div class='item'>");
+
+                    //store rating
+        var rating = results[i].rating;
+
+                //making a p with rating in it
+        var p = $("<p>").text("Rating:" + rating);
+
+        //making image div for each gifImage
+
+        var gifImage = $("<img>");
+
+        gifImage.attr("src", results[i].images.fixed_height.url);
+
+
+//append p and new gifs div
+        gifDiv.append(p);
+        gifDiv.append(gifImage);
+
+        $("#newGifs").prepend(gifDiv);
+
+        
+      }
+    });
+
+    });
+  </script>
+
+</body>
+
+</html>
