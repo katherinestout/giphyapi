@@ -8,16 +8,20 @@
   <title>Giphy API</title>
 
 
-    
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet"> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<link rel ="stylesheet" type="text/css" href="assets/style/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
 </head>
 
 <body>
 <div class="container">
+  <div class="card">
+<div class="card-body">
   <h1> Some of my favorite things!</h1>
+  <br>
 <!--form for adding gifs-->
 <form id = "input-form">
 <label for ="input-form"> Add a stellar gif!</label>
@@ -25,13 +29,23 @@
 <input id= "add-gif" type= "submit" value="add a stellar gif">
 </form>
 
+<br>
+
 <!--buttons div! for already created and to be created dynamically buttons-->
 <div id ="newButtons"></div>
 
+<br>
+
  <!-- the new gifs div-->
 <div id="newGifs"></div>
+
+</div>
+</div>
 </div>
 </body>
-<script src="main.js"></script>
+<script src="assets/javascript/main.js"></script>
 
 </html>
+<!--i spend most of my time trying to figure out how to dynamically
+create divs, and make buttons appear, but i will continue to work on
+the pausing the gifs and also work on limiting the number of gifs-->
